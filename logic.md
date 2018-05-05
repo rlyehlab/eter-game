@@ -20,7 +20,7 @@ On the phone screen, an app that looks like Signal. Messages start arriving from
 #### Screen 2
 The screen is full of smoke ([image ref](art_references/smoke.jpeg)), some objects can be guessed but not properly seen behind it.
 
-A piece of newspaper shows some news about the government allowing garbage burning and community concern & protests. 
+A piece of newspaper ([image ref](art_references/newspaper.jpg)) shows some news about the government allowing garbage burning and community concern & protests. 
 
 #### Screen 3
 
