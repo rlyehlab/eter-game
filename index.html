@@ -91,7 +91,7 @@
     function doCheck(){
       const url = document.getElementById('exampleInput').value;
       if(url.startsWith('https://duckduckgo.com/?q=')){
-          let regex = url.match(/PM10|Air|quality|health|pollution/g);
+          let regex = url.match(/air|health|pm10|pollution|quality/gi);
           if(regex.length==5){
             console.log(regex);
             document.getElementById('message').innerHTML = document.getElementById('message').innerHTML.concat('<p>Cool story, bro!</p>');
