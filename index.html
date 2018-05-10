@@ -96,11 +96,11 @@
             console.log(regex);
             document.getElementById('message').innerHTML = document.getElementById('message').innerHTML.concat('<p>Cool story, bro!</p>');
           }
-          // if(url.match(/PM10/g)){
-          //   document.getElementById('message').innerHTML = document.getElementById('message').innerHTML.concat('<p>Easy as lazy... Still cool!</p>');
-          // }
+          if(url.match(/PM10/g)){
+            document.getElementById('message').innerHTML = document.getElementById('message').innerHTML.concat('<p>Easy as lazy... Still cool!</p>');
+          }
       } else {
-        // document.getElementById('message').innerHTML = document.getElementById('message').innerHTML.concat('<p>You are not even trying it! UNTRACKEDly talking...</p>');
+        document.getElementById('message').innerHTML = document.getElementById('message').innerHTML.concat('<p>You are not even trying it! UNTRACKEDly talking...</p>');
       }
     };
     </script>
