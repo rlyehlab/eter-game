@@ -90,19 +90,18 @@
     };
     function doCheck(){
       const url = document.getElementById('exampleInput').value;
-      // if(url.startsWith('https://duckduckgo.com/?q=')){
+      if(url.startsWith('https://duckduckgo.com/?q=')){
           let regex = url.match(/air|health|pm10|pollution|quality/gi);
-          if(regex.length=>2){
+          if(regex.length==5){
             console.log(regex);
             document.getElementById('message').innerHTML = document.getElementById('message').innerHTML.concat('<p>Cool story, bro!</p>');
           }
           if(url.match(/PM10/g)){
             document.getElementById('message').innerHTML = document.getElementById('message').innerHTML.concat('<p>Easy as lazy... Still cool!</p>');
           }
-      /*
       } else {
         document.getElementById('message').innerHTML = document.getElementById('message').innerHTML.concat('<p>You are not even trying it! UNTRACKEDly talking...</p>');
-      }*/
+      }
     };
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
