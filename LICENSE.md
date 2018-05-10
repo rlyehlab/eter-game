@@ -1,7 +1,7 @@
 # LICENSE
 
-- [Story - CCBY4.0]()
-- [Software - GPLv3]()
+- [Story - CCBY4.0](https://github.com/rlyehlab/eter-game/blob/master/LICENSE.md#story-creative-commons-ccby40)
+- [Software - GPLv3](https://github.com/rlyehlab/eter-game/blob/master/LICENSE.md#software-gplv3)
 
 
 ## Story: Creative Commons CCBY4.0
