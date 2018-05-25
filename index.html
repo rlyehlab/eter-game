@@ -42,51 +42,24 @@
       `we're leaving hospital now - Alex was feeling bad again, doctors tell us nothing can be done. It's something in the air that is causing all this people to feel sick`,
       `we need to do something asap about this - Sasha told me you were joining the group, that's great. Let's see what we can think of together`,
       `The doctor told me that Alex's problem has to do with a special kind of dust in the air... Something called 'PM10'. We need more information about it`,
-      `Please bring back a useful URL about PM10. Use <a href="https://duckduckgo.com">DuckDuckGo</a> search engine, I like my data as I like my coffee: UNTRACKED`
+      `Please bring back a useful URL about PM10. Use <a href="https://duckduckgo.com">DuckDuckGo</a> search engine, I like my data as I like my coffee: UNTRACKED`,
+      `Ok so PM10 is a fine coarse dust that gets into the lungs and is terribly harmful for health... I guess other cities must have this same trouble. Let's see what's happening outside this town`,
+      `Sasha sent me this cool site: https://waqi.info/... It collects data from official monitoring networks. Maybe you can tell me which city has the worst PM10 quality index? It would be useful to contact someone from there`,
+      `I also checked the map, these official data is a complete fraud! If you search for our town, they say the air is clean! We can't trust the government for this. We need to start monitoring air quality ourselves`,
+      `My contact in Delhi mentioned a community where people build their own devices to monitor the environment. We need to see what this community is doing, go to their website https://publiclab.org/tags and bring me back the URL of the air-quality projects repository, please`,
+      `I was with Alex browsing the repository you brought and we found a cool project, it's well documented and I think we can replicate it with the materials we have at hand`,
+      `We need the list of materials so we can gather everything and start working. I think this people have it somewhere in this collaborative platform called GitHub: https://github.com/rlyehlab/eter, an URL will do`,
+      `We just checked and we have all the necessary to start building the device! I'll meet you tomorrow 7pm at the hacklab`
     ];
-    document.getElementById('chat').appendChild(document.createElement('div')).setAttribute('id','message');
-    function doChat(){
-      // Screen 1
-      // window.setTimeout( function(){
-      //   document.getElementById('message').innerHTML = document.getElementById('message').innerHTML.concat('<p>'+strings[0]+'</p>');
-      //   window.setTimeout( function(){
-      //     document.getElementById('message').innerHTML = document.getElementById('message').innerHTML.concat('<p>'+strings[1]+'</p>');
-      //     window.setTimeout( function(){
-      //       document.getElementById('message').insertAdjacentHTML('afterend', `
-      //         <div class="form-row text-center">
-      //             <div class="col-12">
-      //                 <button type="submit" class="btn btn-primary" onclick="doNext()">Next</button>
-      //             </div>
-      //         </div>`
-      //        )}, 1000)
-      //   }, 1000)
-      // }, 1000);
-
-      // Screen 3
-      window.setTimeout( function(){
-        document.getElementById('message').innerHTML = document.getElementById('message').innerHTML.concat('<p>'+strings[2]+'</p>');
-        window.setTimeout( function(){
-          document.getElementById('message').innerHTML = document.getElementById('message').innerHTML.concat('<p>'+strings[3]+'</p>');
-          window.setTimeout( function(){
-            document.getElementById('message').insertAdjacentHTML('afterend', `
-              <div class="form-row form-group text-center">
-                  <div class="col-12">
-                      <input class="form-control" id="exampleInput" placeholder="Enter URL">
-                      <br>
-                      <button type="submit" class="btn btn-primary" onclick="doCheck()">Next</button>
-                  </div>
-              </div>
-            `);
-            doCheck();
-          }, 1000)
-        }, 1000)
-      }, 500);
-    };
+    const chat = document.getElementById('chat');
+    chat.appendChild(document.createElement('div')).setAttribute('id','message');
+    const message = document.getElementById('message');
+    function doChat(){ setView(3) };
     function doNext(){
-      while (document.getElementById('chat').firstChild) {
-          document.getElementById('chat').removeChild(document.getElementById('chat').firstChild);
+      while (chat.firstChild) {
+          chat.removeChild(chat.firstChild);
       }
-      document.getElementById('chat').appendChild(document.createElement('div')).setAttribute('id','message');
+      chat.appendChild(document.createElement('div')).setAttribute('id','message');
     };
     function doCheck(){
       const url = document.getElementById('exampleInput').value;
@@ -94,15 +67,55 @@
           let regex = url.match(/air|health|pm10|pollution|quality/gi);
           if(regex.length==5){
             console.log(regex);
-            document.getElementById('message').innerHTML = document.getElementById('message').innerHTML.concat('<p>Cool story, bro!</p>');
+            message.innerHTML = message.innerHTML.concat('<p>Cool story!</p>');
           }
           if(url.match(/PM10/g)){
-            document.getElementById('message').innerHTML = document.getElementById('message').innerHTML.concat('<p>Easy as lazy... Still cool!</p>');
+            message.innerHTML = message.innerHTML.concat('<p>Easy as lazy, but still cool...</p>');
           }
       } else {
-        document.getElementById('message').innerHTML = document.getElementById('message').innerHTML.concat('<p>You are not even trying it! UNTRACKEDly talking...</p>');
+        message.innerHTML = message.innerHTML.concat('<p>You are not even trying it! UNTRACKEDly talking...</p>');
       }
     };
+    function setView(n){
+      switch(n){
+        case 1:
+          window.setTimeout( function(){
+            message.innerHTML = message.innerHTML.concat('<p>'+strings[0]+'</p>');
+            window.setTimeout( function(){
+              message.innerHTML = message.innerHTML.concat('<p>'+strings[1]+'</p>');
+              window.setTimeout( function(){
+                message.insertAdjacentHTML('afterend', `
+                <div class="form-row text-center">
+                <div class="col-12">
+                <button type="submit" class="btn btn-primary" onclick="doNext()">Next</button>
+                </div>
+                </div>`
+              )}, 1000)
+            }, 1000)
+          }, 1000);
+        break;
+        case 3:
+          window.setTimeout( function(){
+            message.innerHTML = message.innerHTML.concat('<p>'+strings[2]+'</p>');
+            window.setTimeout( function(){
+              message.innerHTML = message.innerHTML.concat('<p>'+strings[3]+'</p>');
+              window.setTimeout( function(){
+                message.insertAdjacentHTML('afterend', `
+                  <div class="form-row form-group text-center">
+                      <div class="col-12">
+                          <input class="form-control" id="exampleInput" placeholder="Enter URL">
+                          <br>
+                          <button type="submit" class="btn btn-primary" onclick="doCheck()">Next</button>
+                      </div>
+                  </div>
+                `);
+                doCheck();
+              }, 1000)
+            }, 1000)
+          }, 500);
+        break;
+      }
+    }
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
